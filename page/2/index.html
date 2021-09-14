@@ -1,0 +1,795 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>一只喵博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Was mich nicht umbringt, macht mich stärker.">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/13/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5%EF%BD%9C2021-9-13/" target="_self">
+          每日简报｜2021.9.13
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/13/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5%EF%BD%9C2021-9-13/" target="_self">
+          
+          
+            
+          
+           每日简报 9月13日，星期一，农历八月初七   1、福建：9月19日前全省师生完成核酸检测；   2、福建莆田因疫情对交通出入口进行管控：在莆人员非必要不离开本市；   3、全国累计接种新冠病毒疫苗214258万剂次；   4、福建莆田全市中小学、幼儿园13日起暂停线下教学；   5、澳门特区举行第七届立法会选举，市民：希望新议员带来新气象；   6、武汉：社保满6个月即可申请落户。媒体：相当于
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-13 09:00" pubdate>
+              2021-09-13
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5/">每日简报</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5/">每日简报</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/10/trashed-12/" target="_self">
+          高考倒计时
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/10/trashed-12/" target="_self">
+          
+          
+            
+          
+          [wpcdt-countdown id=”759”]
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-10 20:48" pubdate>
+              2021-09-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/uncategorized/">uncategorized</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/10/college-entrance-examination/" target="_self">
+          高考倒计时
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/10/college-entrance-examination/" target="_self">
+          
+          
+            
+          
+          [wpcdt-countdown id=”759”] 学习是要吃苦的，是要能忍得住板凳上、台灯前的孤独。不管你的起点如何，最终到达终点的人一定是勤奋且有目标的人。学习是通往自我理想的铺路石，只有勤奋努力，才能披荆斩棘，乘长风破万里浪，到达梦想的彼岸。   一个人只要有了奋斗的目标，就会笑着迎接挑战，视困难如草芥，将汗水比黄金。经过了挫败，游历了迷惘，开始清醒，即使一无所有，但会努力拼搏，为了理想与
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-10 20:19" pubdate>
+              2021-09-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/10/%E9%AB%98%E8%80%83%E5%80%92%E8%AE%A1%E6%97%B6/" target="_self">
+          高考倒计时
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/10/%E9%AB%98%E8%80%83%E5%80%92%E8%AE%A1%E6%97%B6/" target="_self">
+          
+          
+            
+          
+          
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-10 20:12" pubdate>
+              2021-09-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/uncategorized/">uncategorized</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/10/trashed-11/" target="_self">
+          早日简讯
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/10/trashed-11/" target="_self">
+          
+          
+            
+          
+          [wp-rss-aggregator sources=”740”]
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-10 18:07" pubdate>
+              2021-09-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/uncategorized/">uncategorized</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/10/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5%EF%BD%9C2021-9-10/" target="_self">
+          每日简报｜2021.9.10
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/10/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5%EF%BD%9C2021-9-10/" target="_self">
+          
+          
+            
+          
+          每日简报 9月10日，农历八月初四，星期五 教师节   1、中国疾控中心：我国已完成”德尔塔变异株灭活疫苗”临床前研究。即将规模化生产；   2、中消协回应超前点播等问题：不应收老会员超前点播费用，视频平台VIP服务应依法合规、质价相符，平台要少一些套路、多一些真诚；   3、国家卫健委：献血浆者只能在户籍地是其划定采浆区域的单采血浆站献血浆，不得跨区域或流动献血浆；   4、湖北：对疫情防控不力
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-10 11:32" pubdate>
+              2021-09-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5/">每日简报</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5/">每日简报</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/09/%E6%B1%AA%E6%9B%BE%E7%A5%BA%EF%BC%9A%E6%A7%90%E8%8A%B1/" target="_self">
+          汪曾祺：槐花
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/09/%E6%B1%AA%E6%9B%BE%E7%A5%BA%EF%BC%9A%E6%A7%90%E8%8A%B1/" target="_self">
+          
+          
+            
+          
+             玉渊潭洋槐花盛开，像下了一场大雪，白得耀眼。来了放蜂的人。蜂箱都放好了，他的“家”也安顿了。一个刷了涂料的很厚的黑色的帆布篷子。里面打了两道土堰，上面架起几块木板，是床。床上一卷铺盖。地上排着油瓶、酱油瓶、醋瓶。一个白铁桶里已经有多半桶蜜。外面一个蜂窝煤炉子上坐着锅。   一个女人在案板上切青蒜。锅开了，她往锅里下了一把干切面。不大会儿，面熟了，她把面捞在碗里，加了作料、撒上青蒜，在一个碗里
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-09 09:20" pubdate>
+              2021-09-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E6%96%87/">每日一文</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/09/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5%EF%BD%9C2021-9-9/" target="_self">
+          每日简报｜2021.9.9
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/09/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5%EF%BD%9C2021-9-9/" target="_self">
+          
+          
+            
+          
+          每日简报 2021年9月9日，星期四
+国内****热点
+1、我国教师达1792.97万人，2013年以来，中央财政累计投入303亿补贴乡村教师生活
+2、揠苗助长？杭州一妈妈为让女儿长高每天逼其跳绳3000个，孩子患上胫骨结节骨骺炎
+3、中央气象台：第13号台风”康森”预计9日移入南海，将影响广东西部及海南东部。第14号台风”灿都”加强为超强台风，未来可能正面登陆福建
+4、两部门约谈多家游戏企业和平
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-09 09:13" pubdate>
+              2021-09-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5/">每日简报</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5/">每日简报</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/09/%E7%AE%80%E5%8D%95%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2%E4%BB%A3%E7%A0%81/" target="_self">
+          简单登录页面代码
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/09/%E7%AE%80%E5%8D%95%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2%E4%BB%A3%E7%A0%81/" target="_self">
+          
+          
+            
+          
+          ＜HTML＞简单登录页面代码 这是一个简单的静态的html页面登录图片，之前写的，验证码方面没有搞懂，这里我重新参考了这里，但是部分功能还没有完善。仅供参考
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-09 08:08" pubdate>
+              2021-09-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%BC%96%E7%A8%8B/">编程</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/09/trashed-10/" target="_self">
+          Untitled Post - 30
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/09/trashed-10/" target="_self">
+          
+          
+            
+          
+          ![9222c0adff4](https://i.loli.net/2021/09/08/tAJOdcjue5okXUL.jpg)
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-09 07:58" pubdate>
+              2021-09-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/uncategorized/">uncategorized</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#board">12</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://www.baidu.com" target="_blank" rel="nofollow noopener"><span>一只喵博客</span></a> <i class="iconfont icon-love"></i> <a href="https://Google.com" target="_blank" rel="nofollow noopener"><span>易的个人博客</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

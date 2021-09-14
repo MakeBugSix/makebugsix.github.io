@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <meta name="description" content="Markdown语法教程点我拥有更好的阅读体验  Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。  Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。 Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。 Markdown 编写的文档后缀为 .md, .markdown。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown语法">
+<meta property="og:url" content="http://example.com/2021/08/16/markdown/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Markdown语法教程点我拥有更好的阅读体验  Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。  Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。 Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。 Markdown 编写的文档后缀为 .md, .markdown。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-15T17:17:58.000Z">
+<meta property="article:modified_time" content="2021-09-14T02:25:05.650Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>Markdown语法 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>一只喵博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Markdown语法">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-08-16 01:17" pubdate>
+        2021年8月16日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      21 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Markdown语法</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Markdown语法教程"><a href="#Markdown语法教程" class="headerlink" title="Markdown语法教程"></a>Markdown语法教程</h1><p><a target="_blank" rel="noopener" href="https://note.youdao.com/s/ZvtuODie">点我拥有更好的阅读体验</a></p>
+<blockquote>
+<p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
+</blockquote>
+<p>Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。 Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。 Markdown 编写的文档后缀为 .md, .markdown。  </p>
+<h2 id="Markdown-的优缺点"><a href="#Markdown-的优缺点" class="headerlink" title="Markdown 的优缺点"></a>Markdown 的优缺点</h2><p>优点： 1、因为是纯文本，所以只要支持Markdown的地方都能获得一样的编辑效果，可以让作者摆脱排版的困扰，专心写作。 2、操作简单，简洁快捷。 缺点： 1、需要记一些语法（当然，是很简单。五分钟学会）。 2、部分平台不支持Markdown编辑模式。  </p>
+<h2 id="Markdown-的应用"><a href="#Markdown-的应用" class="headerlink" title="Markdown 的应用"></a>Markdown 的应用</h2><p>Markdown 能被使用来撰写电子书，如：Gitbook。   当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。例如：GitHub、简书、reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge等。  </p>
+<h2 id="Markdown-标题"><a href="#Markdown-标题" class="headerlink" title="Markdown 标题"></a>Markdown 标题</h2><p>在想要设置为标题的文字前面加#来表示 一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。   注：标准语法一般在#后跟个空格再写文字。 效果如下：</p>
+<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><h2 id="我是二级标题"><a href="#我是二级标题" class="headerlink" title="我是二级标题"></a>我是二级标题</h2><h3 id="我是三级标题"><a href="#我是三级标题" class="headerlink" title="我是三级标题"></a>我是三级标题</h3><h4 id="欢迎来到神曲博客"><a href="#欢迎来到神曲博客" class="headerlink" title="欢迎来到神曲博客"></a>欢迎来到神曲博客</h4><p>Markdown 标题有两种格式，常见的就是上面的哪一种，还有一种是使用 = 和 - 标记一级和二级标题。 在文本下方添加任意数量的 == 号来标识一级标题，或者 – 号来标识二级标题。  </p>
+<h2 id="Markdown-字体"><a href="#Markdown-字体" class="headerlink" title="Markdown 字体"></a>Markdown 字体</h2><p>1，加粗 要加粗的文字左右分别用两个*号包起来   2，斜体 要倾斜的文字左右分别用一个*号包起来   3，斜体加粗 要倾斜和加粗的文字左右分别用三个*号包起来   4，删除线 要加删除线的文字左右分别用两个~~号包起来 例如：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-strong">**这是加粗的文字**</span><br><br><span class="hljs-strong">*这是倾斜的文字*</span>`<br><br><span class="hljs-strong">***这是斜体加粗的文字**</span>*<br><br>~~这是加删除线的文字~~<br><br></code></pre></td></tr></table></figure>
+
+<p>  效果如下： <strong>这是加粗的文字</strong> _这是倾斜的文字_` <strong><em>这是斜体加粗的文字</em></strong> <del>这是加删除线的文字</del>   5，分隔线 你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-strong">**<span class="hljs-emphasis">*</span></span><br><span class="hljs-emphasis"><span class="hljs-strong"></span></span><br><span class="hljs-emphasis"><span class="hljs-strong">*</span> <span class="hljs-emphasis">* *</span></span><br><span class="hljs-strong"></span><br><span class="hljs-strong">**</span><span class="hljs-strong">**<span class="hljs-emphasis">*</span></span><br><span class="hljs-emphasis"><span class="hljs-strong"></span></span><br><span class="hljs-emphasis"><span class="hljs-strong">- - -</span></span><br><span class="hljs-emphasis"><span class="hljs-strong"></span></span><br><span class="hljs-emphasis"><span class="hljs-strong">----------</span></span><br><span class="hljs-emphasis"><span class="hljs-strong"></span></span><br></code></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<hr>
+<p> </p>
+<hr>
+<p> </p>
+<hr>
+<p> </p>
+<hr>
+<p> </p>
+<hr>
+<p>  6，下划线 大多 Markdown 应用程序允许你在 Markdown 格式文本中添加 HTML 标签。如果你喜欢某些 HTML 标签胜于 Markdown 语法的话，这将何有帮助。例如，某些人发现通过 HTML 标签添加图像更加容易。当你需要更改元素的属性时（例如为文本指定颜色或更改图像的宽度），使用 HTML 标签更方便些。 如需使用 HTML，请将 HTML 标签添加到 Markdown 格式文本中即可。   下划线可以通过 HTML 的 <u> 标签来实现：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">u</span>&gt;</span>带下划线文本<span class="hljs-tag">&lt;/<span class="hljs-name">u</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
+
+<p>  7，脚注 脚注是对文本的补充说明。   Markdown 脚注的格式如下:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs json">[^要注明的文本]<br><br></code></pre></td></tr></table></figure>
+
+<p>脚注的用法例子：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">创建脚注格式类似这样 [^神曲博客]。<br><br>[<span class="hljs-symbol">^神曲博客</span>]: <span class="hljs-link">神曲博客-Makebug六和曲（易）的个人小站</span><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="Markdown-段落"><a href="#Markdown-段落" class="headerlink" title="Markdown 段落"></a>Markdown 段落</h2><p>要创建段落，请使用空白行将一行或多行文本进行分隔。 注意：除非 段落在列表中，否则不要用空格或制表符缩进段落。  </p>
+<h2 id="Markdown-换行"><a href="#Markdown-换行" class="headerlink" title="Markdown 换行"></a>Markdown 换行</h2><p>在一行的末尾添加两个或多个空格，然后按回车键，即可创建一个换行。   几乎每个 Markdown 应用程序都支持两个或多个空格进行换行 (称为 “结尾空格（trailing whitespace）”) 的方式，但这是有争议的，因为很难在编辑器中直接看到空格，并且很多人在每个句子后面都会有意或无意地添加两个空格。由于这个原因，你可能需要使用除结尾空格以外的其它方式来进行换行。幸运的是，几乎每个 Markdown 应用程序都支持另一种换行方式：HTML 的 <br> 标签。   为了兼容性，请在行尾添加“结尾空格”或 HTML 的 <br> 标签来实现换行。   还有两种其他方式我并不推荐使用。CommonMark 和其它几种轻量级标记语言支持在行尾添加反斜杠 () 的方式实现换行，但是并非所有 Markdown 应用程序都支持此种方式，因此从兼容性的角度来看，不推荐使用。并且至少有两种轻量级标记语言支持无须在行尾添加任何内容，只须键入回车键（ return）即可实现换行。  </p>
+<h2 id="Markdown-块引用"><a href="#Markdown-块引用" class="headerlink" title="Markdown 块引用"></a>Markdown 块引用</h2><p>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;… 例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash">这是引用的内容</span><br><span class="hljs-meta"></span><br><span class="hljs-meta">&gt;</span><span class="bash">&gt;这是引用的内容</span><br><span class="hljs-meta"></span><br><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt;这是引用的内容</span><br><br></code></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<blockquote>
+<p>这是引用的内容 &gt;这是引用的内容 &gt;&gt;这是引用的内容</p>
+</blockquote>
+<p> </p>
+<h2 id="Markdown-列表"><a href="#Markdown-列表" class="headerlink" title="Markdown 列表"></a>Markdown 列表</h2><p>Markdown 支持有序列表和无序列表。   无序列表使用星号(*)、加号(+)或是减号(-)作为列表标记，这些标记后面要添加一个空格，然后再填写内容。   无序列表：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">-</span> 列表内容<br><br><span class="hljs-bullet">+</span> 列表内容<br><br><span class="hljs-bullet">*</span> 列表内容<br><br>注意：- + <span class="hljs-emphasis">* 跟内容之间都要有一个空格</span><br><span class="hljs-emphasis"></span><br></code></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<ul>
+<li>列表内容</li>
+<li>列表内容</li>
+<li>列表内容</li>
+</ul>
+<p>  有序列表： 有序列表使用数字并加上 . 号来表示，如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 第一项<br><br><span class="hljs-bullet">2.</span> 第二项<br><br><span class="hljs-bullet">3.</span> 第三项<br><br></code></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ol>
+<p>  列表嵌套 列表嵌套只需在子列表中的选项前面添加四个空格即可：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 第一项：<br><br><span class="hljs-bullet">-</span> 第一项嵌套的第一个元素<br><br><span class="hljs-bullet">-</span> 第一项嵌套的第二个元素<br><br><span class="hljs-bullet">2.</span> 第二项：<br><br><span class="hljs-bullet">-</span> 第二项嵌套的第一个元素<br><br><span class="hljs-bullet">-</span> 第二项嵌套的第二个元素<br><br></code></pre></td></tr></table></figure>
+
+<p>  显示效果：</p>
+<ol>
+<li> 第一项：</li>
+</ol>
+<ul>
+<li>第一项嵌套的第一个元素</li>
+<li>第一项嵌套的第二个元素</li>
+</ul>
+<ol>
+<li> 第二项：</li>
+</ol>
+<ul>
+<li>第二项嵌套的第一个元素</li>
+<li>第二项嵌套的第二个元素</li>
+</ul>
+<p>  <strong>引用块中使用列</strong></p>
+<figure class="highlight node-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs node-repl"><span class="hljs-meta">&gt;</span> <span class="javascript">区块中使用列表</span><br><br><span class="hljs-meta">&gt;</span> <span class="javascript"><span class="hljs-number">1.</span> 第一项</span><br><br><span class="hljs-meta">&gt;</span> <span class="javascript"><span class="hljs-number">2.</span> 第二项</span><br><br><span class="hljs-meta">&gt;</span> <span class="javascript">+ 第一项</span><br><br><span class="hljs-meta">&gt;</span> <span class="javascript">+ 第二项</span><br><br><span class="hljs-meta">&gt;</span> <span class="javascript">+ 第三项</span><br><br></code></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<blockquote>
+<p>区块中使用列表</p>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+</ol>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+</blockquote>
+<p>  <strong>列表中使用引用块</strong> 如果要在列表项目内放进区块，那么就需要在 &gt; 前添加四个空格的缩进。   列表中使用区块实例如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">*</span> 第一项<br><br><span class="hljs-quote">&gt; 神曲博客</span><br><br><span class="hljs-quote">&gt; 一个无聊的个人小站</span><br><br><span class="hljs-bullet">*</span> 第二项<br><br></code></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<ul>
+<li>  第一项</li>
+</ul>
+<blockquote>
+<p>神曲博客 一个无聊的个人小站</p>
+</blockquote>
+<ul>
+<li>  第二项</li>
+</ul>
+<p> </p>
+<h2 id="Markdown-表格"><a href="#Markdown-表格" class="headerlink" title="Markdown 表格"></a>Markdown 表格</h2><p>语法：</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs haml">表头表头表头<br><br>-<span class="ruby">--<span class="hljs-symbol">:--</span><span class="hljs-symbol">:---</span>:</span><br><span class="ruby"></span><br>内容内容内容<br><br>内容内容内容<br><br>第二行分割表头和内容。<br><br>-<span class="ruby"> 有一个就行，为了对齐，多加了几个</span><br><span class="ruby"></span><br>文字默认居左<br><br>-<span class="ruby">两边加：表示文字居中</span><br><span class="ruby"></span><br>-<span class="ruby">右边加：表示文字居右</span><br><span class="ruby"></span><br>注：原生的语法两边都要用  包起来。此处省略<br><br></code></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs haml">姓名分数排行<br><br>-<span class="ruby">-<span class="hljs-symbol">:--</span><span class="hljs-symbol">:--</span>:</span><br><span class="ruby"></span><br>张三100一<br><br>李四95二<br><br>王五66三<br><br></code></pre></td></tr></table></figure>
+
+<p>效果： 姓名分数排行 –:–:–: 张三100一 李四95二 王五66三   <strong>对齐方式</strong>   我们可以设置表格的对齐方式：   -: 设置内容和标题栏居右对齐。 :- 设置内容和标题栏居左对齐。 :-: 设置内容和标题栏居中对齐。</p>
+<h2 id="Markdown-代码"><a href="#Markdown-代码" class="headerlink" title="Markdown 代码"></a>Markdown 代码</h2><p>单行代码：代码之间分别用一个反引号包起来 例如：</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">`代码内容` 这是一行代码<br><br></code></pre></td></tr></table></figure>
+
+<p>效果：<code>代码内容</code> 这是一行代码   代码块：用 ``` 包裹一段代码，并指定一种语言（也可以不指定） 例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br><br>alert(<span class="hljs-string">&#x27;shenqublog&#x27;</span>);<br><br>&#125;);<br><br></code></pre></td></tr></table></figure>
+
+<p>也可以使用 4 个空格或者一个制表符（Tab 键）。  </p>
+<h2 id="Markdown-超链接"><a href="#Markdown-超链接" class="headerlink" title="Markdown 超链接"></a>Markdown 超链接</h2><p>语法：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-attr">[链接名称]</span>(链接地址)<br><br>或者<br><br>&lt;链接地址&gt;<br><br></code></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs less">这是一个链接 <span class="hljs-selector-attr">[神曲博客]</span>(<span class="hljs-attribute">http</span>:<span class="hljs-comment">//blog.makebugsix.xyz)</span><br><br></code></pre></td></tr></table></figure>
+
+<p>效果： 这是一个链接 <a target="_blank" rel="noopener" href="http://blog.makebugsix.xyz/">神曲博客</a>   Markdown本身语法不支持链接在新页面中打开，如果想要在新页面中打开的话可以用html语言的a标签代替。 语法：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">&lt;a <span class="hljs-attribute">href</span>=<span class="hljs-string">&quot;超链接地址&quot;</span> <span class="hljs-attribute">target</span>=<span class="hljs-string">&quot;_blank&quot;</span> <span class="hljs-attribute">rel</span>=<span class="hljs-string">&quot;noopener&quot;</span>&gt;超链接名&lt;/a&gt;<br><br></code></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">&lt;a <span class="hljs-attribute">href</span>=<span class="hljs-string">&quot;https://www.baidu.com&quot;</span> <span class="hljs-attribute">target</span>=<span class="hljs-string">&quot;_blank&quot;</span> <span class="hljs-attribute">rel</span>=<span class="hljs-string">&quot;noopener&quot;</span>&gt;百度&lt;/a&gt;<br><br></code></pre></td></tr></table></figure>
+
+<p>  <strong>高级链接</strong> 我们可以通过变量来设置一个链接，变量赋值在文档末尾进行：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs less">这个链接用 <span class="hljs-selector-tag">1</span> 作为网址变量 <span class="hljs-selector-attr">[Google]</span><span class="hljs-selector-attr">[1]</span><br><br>这个链接用 <span class="hljs-selector-tag">2</span> 作为网址变量 <span class="hljs-selector-attr">[Baidu]</span><span class="hljs-selector-attr">[2]</span><br><br>然后在文档的结尾为变量赋值（网址）<br><br><span class="hljs-selector-attr">[1]</span>: <span class="hljs-selector-tag">http</span>:<span class="hljs-comment">//www.google.com/</span><br><br><span class="hljs-selector-attr">[2]</span>: <span class="hljs-selector-tag">https</span>：<span class="hljs-comment">//www.baidu.com</span><br><br></code></pre></td></tr></table></figure>
+
+<p> </p>
+<h2 id="Markdown-图片"><a href="#Markdown-图片" class="headerlink" title="Markdown 图片"></a>Markdown 图片</h2><p>Markdown 图片语法格式如下：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs less">!<span class="hljs-selector-attr">[alt 属性文本]</span>(图片地址)<br><br>!<span class="hljs-selector-attr">[alt 属性文本]</span>(图片地址 <span class="hljs-string">&quot;可选标题&quot;</span>)<br><br></code></pre></td></tr></table></figure>
+
+<p>开头一个感叹号 ! 接着一个方括号，里面放上图片的替代文字 接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的 ‘title’ 属性的文字。   Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的 <img> 标签。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">&lt;img <span class="hljs-attribute">src</span>=<span class="hljs-string">&quot;图片链接&quot;</span> <span class="hljs-attribute">width</span>=<span class="hljs-string">&quot;50%&quot;</span> /&gt;<br><br></code></pre></td></tr></table></figure>
+
+<p> </p>
+<h2 id="Markdown-流程图"><a href="#Markdown-流程图" class="headerlink" title="Markdown 流程图"></a>Markdown 流程图</h2><p>详情可参考：<a target="_blank" rel="noopener" href="https://mermaid-js.github.io/mermaid/#/">https://mermaid-js.github.io/mermaid/#/</a>  </p>
+<h2 id="Markdown-其他"><a href="#Markdown-其他" class="headerlink" title="Markdown 其他"></a>Markdown 其他</h2><p><strong>支持的 HTML 元素</strong> 不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。   目前支持的 HTML 元素有：<kbd> <b> <i> <em> <sup> <sub> <br>等.   出于安全原因，并非所有 Markdown 应用程序都支持在 Markdown 文档中添加 HTML。如有疑问，请查看 Markdown 应用程序的文档。某些应用程序只支持 HTML 标签的子集。   对于 HTML 的块级元素 <div>、<table>、<pre> 和 <p>，请在其前后使用空行（blank lines）与其它内容进行分隔。尽量不要使用制表符（tabs）或空格（spaces）对 HTML 标签做缩进，否则将影响格式。   在 HTML 块级标签内不能使用 Markdown 语法。例如 <p>italic and <strong>bold</strong></p> 将不起作用。   <strong>转义</strong> Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-strong">**文本加粗**</span><br><br>\*\* 正常显示星号 \*\*<br><br></code></pre></td></tr></table></figure>
+
+<p>效果： <strong>文本加粗</strong> ** 正常显示星号 **   Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs gams">\ 反斜杠（backslash）<br><br>` backtick<br><br><span class="hljs-comment">* 星号（asterisk）</span><br><br>_ 下划线（underscore）<br><br>&#123; &#125; 花括号（curly braces）<br><br>[ ] 方括号（brackets）<br><br>&amp;<span class="hljs-keyword">lt</span>; &amp;<span class="hljs-keyword">gt</span>; angle brackets<br><br>( ) 圆括号或括号（parentheses）<br><br># 井号（pound <span class="hljs-built_in">sign</span>）<br><br>+ 加号（plus <span class="hljs-built_in">sign</span>）<br><br>- 减号（minus <span class="hljs-built_in">sign</span>） (也叫连字符 hyphen)<br><br>. 句点（dot）<br><br>! 感叹号（exclamation mark）<br><br> 管道符（pipe）<br><br></code></pre></td></tr></table></figure>
+
+<p>  <strong>公式</strong> <strong>分数，平方</strong>   算式 markdown — — 7x+51+y2 7 x + 5 1 + y 2 \frac{7x+5}{1+y^2}   <strong>下标</strong>   算式 markdown — — z\=zl z = z l z=z_l   <strong>省略号</strong>   省略号 markdown — — ⋯ ⋯ \cdots   <strong>行间公式（使用两个$包含公式可以独立一行）</strong>   行间公式 markdown — — ddxeax\=aeax∑ni\=1(Xi−X¯¯¯¯)2 d d x e a x = a e a x ∑ i = 1 n ( X i − X ¯ ) 2 <code>$\frac&#123;d&#125;&#123;dx&#125;e^&#123;ax&#125;=ae^&#123;ax&#125;\quad \sum_&#123;i=1&#125;^&#123;n&#125;&#123;(X_i - \overline&#123;X&#125;)^2&#125;$</code>   <strong>开根号</strong>   算式 markdown — — 2–√;3–√n 2 ; 3 n \sqrt{2};\sqrt[n]{3}   <strong>矢量</strong>   算式 markdown — — a⃗ ⋅b⃗ \=0 a → ⋅ b → = 0 \vec{a} \cdot \vec{b}=0   <strong>微积分</strong>   算式 markdown — — ∫23x2dx ∫ 3 2 x 2 d x \int ^2_3 x^2 {\rm d}x ∬ ∬ \iint ∭ ∭ \iiint ∮ ∮ \oint \varoiint \varoiint \oint d d \mathrm{d} ′ ′ \prime lim lim \lim ∞ ∞ \infty ∂ ∂ \partial ∂f(x,y)∂x∣∣x\=0 ∂ f ( x , y ) ∂ x x = 0 \left.\frac{\partial f(x,y)}{\partial x}\right ∑ ∑ \sum   <strong>极限</strong>   算式 markdown — — limn→+∞n l i m n → + ∞ n \lim_{n\rightarrow+\infty} n   <strong>累加</strong>   算式 markdown — — ∑1i2 ∑ 1 i 2 \sum \frac{1}{i^2}   <strong>累乘</strong>   算式 markdown — — ∏1i2 ∏ 1 i 2 \prod \frac{1}{i^2}   <strong>给公式编号，如: (1)</strong> <code>$$e^&#123;i\theta&#125;=cos\theta+\sin\theta i\tag&#123;1&#125;$$</code>   eiθ\=cosθ+isinθ(1) (1) e i θ = c o s θ + i sin ⁡ θ   <strong>矩阵</strong>  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs auto">$$<br><br>\begin&#123;matrix&#125;<br><br>1 &amp; 2 &amp; 3 \\<br><br>4 &amp; 5 &amp; 6 \\<br><br>7 &amp; 8 &amp; 9<br><br>\end&#123;matrix&#125; \tag&#123;1&#125;<br><br>$$<br><br></code></pre></td></tr></table></figure>
+
+<p>  147258369(1) (1) 1 2 3 4 5 6 7 8 9   <strong>带括号的矩阵</strong>  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs auto">$$<br><br>\left[<br><br>\begin&#123;matrix&#125;<br><br>1 &amp; 2 &amp; 3 \\<br><br>4 &amp; 5 &amp; 6 \\<br><br>7 &amp; 8 &amp; 9<br><br>\end&#123;matrix&#125; \right]\tag&#123;2&#125;<br><br>$$<br><br></code></pre></td></tr></table></figure>
+
+<p>  ⎡⎣⎢147258369⎤⎦⎥(2) (2) [ 1 2 3 4 5 6 7 8 9 ]   符号 形式 — — pmatrix (1324) bmatrix [1324] Bmatrix {1324} vmatrix 1324 1 3 2 4 Vmatrix 1 3 2 4   <strong>希腊字母</strong>   大写 markdown 小写 markdown — — — — A A α \alpha B B β \beta Γ \Gamma γ \gamma Δ \Delta δ \delta E E ϵ \epsilon ε \varepsilon Z Z ζ \zeta H H η \eta Θ \Theta θ \theta I I ι \iota K K κ \kappa Λ \Lambda λ \lambda M M μ \mu N N ν \nu Ξ \Xi ξ \xi O O ο \omicron Π \Pi π \pi P P ρ \rho Σ \Sigma σ \sigma   大写 markdown 小写 markdown — — — — T T τ \tau Υ \Upsilon υ \upsilon Φ \Phi ϕ \phi φ \varphi X X χ \chi Ψ \Psi ψ \psi Ω \Omega ω \omega   <strong>三角函数</strong>   三角函数 markdown — — sin \sin   <strong>对数函数</strong>   <strong>对数函数</strong>   算式 markdown — — ln15 ln ⁡ 15 \ln15 log210 l o g 2 10 \log_2^{10} lg7 lg ⁡ 7 \lg7   <strong>关系运算符</strong>   运算符 markdown — — ± \pm × \times ÷ \div ∑ \sum ∏ \prod ≠ \neq ≤ \leq ≥ \geq   <strong>括号</strong>   运算符 markdown — — 大括号: {a+x} \lbrace a+x \rbrace 尖括号: ⟨x⟩ ⟨ x ⟩ \langle x \rangle 上取整: ⌈x2⌉ ⌈ x 2 ⌉ \lceil \frac{x}{2} \rceil 下取整: ⌊x⌋ ⌊ x ⌋ \lfloor x \rfloor 原始括号: {∑ni\=0i2\=2ax2+1} { ∑ i = 0 n i 2 = 2 a x 2 + 1 } \lbrace \sum_{i=0}^{n}i^{2}=\frac{2a}{x^2+1} \rbrace 全包括号: {∑ni\=0i2\=2ax2+1} { ∑ i = 0 n i 2 = 2 a x 2 + 1 } \left\lbrace \sum_{i=0}^{n}i^{2}=\frac{2a}{x^2+1} \right\rbrace   <strong>不能显示表格是我没想到的</strong></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/08/17/%E5%BC%80%E6%BA%90%E9%98%85%E8%AF%BB/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">开源阅读</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/08/15/trashed-4/">
+                        <span class="hidden-mobile">Untitled Post - 29</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://www.baidu.com" target="_blank" rel="nofollow noopener"><span>一只喵博客</span></a> <i class="iconfont icon-love"></i> <a href="https://Google.com" target="_blank" rel="nofollow noopener"><span>易的个人博客</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

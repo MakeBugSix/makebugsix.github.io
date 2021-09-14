@@ -1,0 +1,759 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/12/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>一只喵博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Was mich nicht umbringt, macht mich stärker.">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/06/05/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5-2021%E5%B9%B46%E6%9C%885%E6%97%A5%EF%BC%8C%E6%98%9F%E6%9C%9F%E5%85%AD%EF%BC%8C%E5%86%9C%E5%8E%86%E5%9B%9B%E6%9C%88%E4%BA%8C%E5%8D%81%E4%BA%94/" target="_self">
+          每日简报 辛丑年六月五日
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/05/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5-2021%E5%B9%B46%E6%9C%885%E6%97%A5%EF%BC%8C%E6%98%9F%E6%9C%9F%E5%85%AD%EF%BC%8C%E5%86%9C%E5%8E%86%E5%9B%9B%E6%9C%88%E4%BA%8C%E5%8D%81%E4%BA%94/" target="_self">
+          
+          
+            
+          
+          每日简报 2021年6月5日，星期六，农历四月二十五
+国内热点
+1、广东人社厅：疫情期间劳动者被隔离，企业应正常支付工资；广州海珠区：全区所有社会餐饮服务单位暂停堂食
+2、4日清晨，甘肃金昌境内的兰新铁路一列车与铁路施工人员相撞，至9人遇难，事发前列车晚点14分钟
+3、华为正式发布鸿蒙手机操作系统:HarmonyOS 2智能时代连接万物
+4、中国科学家2天内接连登上国际顶尖学术期刊《自然》、《科学
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-05 00:34" pubdate>
+              2021-06-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5/">每日简报</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/06/04/%E5%85%AD%E6%9C%88%EF%BC%8C%E6%84%BF%E6%9C%80%E7%BE%8E%E5%A5%BD%E7%9A%84%E4%B8%80%E5%88%87%E5%A6%82%E7%BA%A6%E8%80%8C%E8%87%B3/" target="_self">
+          六月，愿最美好的一切如约而至
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/04/%E5%85%AD%E6%9C%88%EF%BC%8C%E6%84%BF%E6%9C%80%E7%BE%8E%E5%A5%BD%E7%9A%84%E4%B8%80%E5%88%87%E5%A6%82%E7%BA%A6%E8%80%8C%E8%87%B3/" target="_self">
+          
+          
+            
+          
+          我们都是时间的旅人，在渐行渐远的时光里，用朴素的笔，轻轻描绘人生的酸甜苦辣。   在去往五月的安然的路上，去往六月郁郁葱葱的绿意，纵然再有种种执着，也挡不住季节的脚步。 我们有一颗美丽的心，迎接六月的鸟语花香。   人生走过的路，都是有来无回的旅行。 如果是好的，那就是美妙的，如果是坏的，那就是体验。 好的坏的都是人生不可复制的风景。   六月是一年中最繁忙的季节。 天蓝水清，树阴，荷花三百里，草
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-04 08:03" pubdate>
+              2021-06-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E6%96%87/">每日一文</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/06/04/%E7%BB%99%E6%88%91%E5%AA%B3%E5%A6%87%E5%90%83%E5%95%A5%E4%BA%86/" target="_self">
+          给我媳妇吃啥了
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/04/%E7%BB%99%E6%88%91%E5%AA%B3%E5%A6%87%E5%90%83%E5%95%A5%E4%BA%86/" target="_self">
+          
+          
+            
+          
+          老周两口子只有一个宝贝儿子，如今儿子三十岁结婚了，还整天为儿子的事操心。最近，儿子眼睛出了点问题，总是视物模糊不清，到医院一查，说是肝脏不好引起的。老周找人一打听，有人说吃啥补啥，肝不好可以吃肝补肝。于是，老周打电话给儿子，让儿子隔三差五地晚上来家里，买来了鸡肝羊肝猪肝给儿子吃。   儿子小周结婚后和妻子翠花就搬出去住了，小两口的家离老周家不远，翠花的娘家跟老周家在一个小区，算是邻居，可每次小周来
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-04 07:33" pubdate>
+              2021-06-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%AF%8F%E6%97%A5%E6%95%85%E4%BA%8B/">每日故事</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/06/04/%E3%80%90%E6%AF%8F%E6%97%A5%E8%B5%84%E8%AE%AF%E7%AE%80%E6%8A%A5%E3%80%916%E6%9C%884%E6%97%A5-%E6%98%9F%E6%9C%9F%E4%BA%94/" target="_self">
+          每日简报 辛丑年六月四日
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/04/%E3%80%90%E6%AF%8F%E6%97%A5%E8%B5%84%E8%AE%AF%E7%AE%80%E6%8A%A5%E3%80%916%E6%9C%884%E6%97%A5-%E6%98%9F%E6%9C%9F%E4%BA%94/" target="_self">
+          
+          
+            
+          
+          每日简报6月4日  星期五  农历四月廿四
+1、国家卫健委：全国累计报告接种新冠疫苗超7亿剂次；
+2、端午节高速公路不免费，出游人次预计上亿，六成游客省内游；
+3、教育部：各地要积极创造条件，在溺水事故高发地区学校开设游泳课；
+4、陈薇院士：雾化吸入式新冠疫苗正在申请紧急使用，可形成黏膜免疫；
+5、广东：在更大范围开展大规模核酸筛查，中高风险地区封闭管理；
+6、深圳公开征求意见：大数据杀熟5万起罚
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-04 06:25" pubdate>
+              2021-06-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5/">每日简报</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/06/03/%E9%98%85%E8%AF%BB3-0app-%E5%85%A8%E7%BD%91%E5%B0%8F%E8%AF%B4%E5%85%8D%E8%B4%B9%E9%98%85%E8%AF%BB/" target="_self">
+          阅读3.0APP-全网小说免费阅读
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/03/%E9%98%85%E8%AF%BB3-0app-%E5%85%A8%E7%BD%91%E5%B0%8F%E8%AF%B4%E5%85%8D%E8%B4%B9%E9%98%85%E8%AF%BB/" target="_self">
+          
+          
+            
+          
+            阅读(io.legado.app.release) **2021/05/26** * 书签绑定书名与作者 * 修复详情页目录问题 **2021/05/24** * 反转目录后刷新内容 * 修复上下滑动会导致左右切换问题 * 精确搜索增加包含关键词的,比如搜索五行 五行天也显示出来, 五天行不显示 **2021/05/21** * 添加反转目录功能 * 修复分享bug * 详情页添加登录菜单 *
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-03 12:10" pubdate>
+              2021-06-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/">软件分享</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%98%85%E8%AF%BB%E8%BD%AF%E4%BB%B6/">阅读软件</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/06/03/%E3%80%90%E6%AF%8F%E6%97%A5%E8%B5%84%E8%AE%AF%E7%AE%80%E6%8A%A5%E3%80%916%E6%9C%883%E6%97%A5-%E6%98%9F%E6%9C%9F%E5%9B%9B/" target="_self">
+          每日简报 辛丑年六月三日
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/03/%E3%80%90%E6%AF%8F%E6%97%A5%E8%B5%84%E8%AE%AF%E7%AE%80%E6%8A%A5%E3%80%916%E6%9C%883%E6%97%A5-%E6%98%9F%E6%9C%9F%E5%9B%9B/" target="_self">
+          
+          
+            
+          
+          
+每日简报6月3日  星期四  农历四月廿三
+1、体育总局：暂停山地越野、翼装飞行等新兴高危体育赛事活动；
+2、今年全国高考报名1078万人，比去年增加7万，再创历史新高；
+3、中小学生作业睡眠等五项管理实地督查启动，重庆内蒙古为首站；
+4、“P2P平台出事，明星拍拍屁股就走人？”银保监会：将依法追缴代言费；
+5、人大代表建议免费为中学女生接种HPV疫苗，卫健委：将积极争取财政支持；
+6、全国71
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-03 06:23" pubdate>
+              2021-06-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5/">每日简报</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/06/02/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5-2021%E5%B9%B46%E6%9C%882%E6%97%A5%EF%BC%8C%E6%98%9F%E6%9C%9F%E4%B8%89%EF%BC%8C%E5%86%9C%E5%8E%86%E5%9B%9B%E6%9C%88%E4%BA%8C%E5%8D%81%E4%BA%8C/" target="_self">
+          每日简报 辛丑年六月二日
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/02/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5-2021%E5%B9%B46%E6%9C%882%E6%97%A5%EF%BC%8C%E6%98%9F%E6%9C%9F%E4%B8%89%EF%BC%8C%E5%86%9C%E5%8E%86%E5%9B%9B%E6%9C%88%E4%BA%8C%E5%8D%81%E4%BA%8C/" target="_self">
+          
+          
+            
+          
+          每日简报 2021年6月2日，星期三，农历四月二十二
+国内热点
+1、中国开启太空旅游规划：2024年前执行首次平民太空旅游项目
+2、市场监管总局：对新东方、学而思、精锐教育、掌门1对1等15家校外培训机构顶格罚款共计3650万元
+3、广州核酸大排查已发现阳性16例，广州暂停社会接种疫苗
+4、经审查,一网友“辣笔小球”博取网民关注，在微博上歪曲事实、诋毁贬损5名卫国戍边英雄，获刑8个月
+5、公安部“
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-02 00:12" pubdate>
+              2021-06-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5/">每日简报</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/06/01/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5-2021%E5%B9%B46%E6%9C%881%E6%97%A5%EF%BC%8C%E6%98%9F%E6%9C%9F%E4%BA%8C%EF%BC%8C%E5%86%9C%E5%8E%86%E5%9B%9B%E6%9C%88%E4%BA%8C%E5%8D%81%E4%B8%80%EF%BC%8C%E5%84%BF/" target="_self">
+          每日简报 辛丑年六月一日
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/01/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5-2021%E5%B9%B46%E6%9C%881%E6%97%A5%EF%BC%8C%E6%98%9F%E6%9C%9F%E4%BA%8C%EF%BC%8C%E5%86%9C%E5%8E%86%E5%9B%9B%E6%9C%88%E4%BA%8C%E5%8D%81%E4%B8%80%EF%BC%8C%E5%84%BF/" target="_self">
+          
+          
+            
+          
+          每日简报 2021年6月1日，星期二，农历四月二十一，儿童节～
+国内热点
+1、淘宝特价版更名为淘特，今年要拿出10亿上线官方补贴频道
+2、三孩生育政策来了！国家进一步优化生育政策，实施一对夫妻可以生育三个子女政策及配套支持措施
+3、4月份以来，苹果滞销价格大跌。有的批发价格甚至降到每斤不到一块钱，目前果农、果商都面临着赔钱赚吆喝的困境
+4、大国重器上新！世界第二大水电站，白鹤滩水电站大坝主体完工，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-01 12:00" pubdate>
+              2021-06-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5/">每日简报</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5/">每日简报</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/01/%E4%B8%80%E4%BA%9B%E5%88%9A%E6%83%B3/" target="_self">
+          关于
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/01/%E4%B8%80%E4%BA%9B%E5%88%9A%E6%83%B3/" target="_self">
+          
+          
+            
+          
+          其实就我自己而言，我都不知道搭建博客的意义何在，就比如我自己，看到别人的博客网站，也就是找到自己想要的东西，然后再也不会打开了，上网冲浪的时间很长，但是真正访问的几个博客网站没几个。
+所以我在搭建之前，就已经做好心理准备把这个小站点只当成自己的一个小窝了，记录记录点东西推荐一些自己的爱好以及学习的心得和有趣的软件，甚至当成一个小日记本，不管有没有人看，每天记录一点点成长一点点，这也大概就是搭建博客
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-01 03:33" pubdate>
+              2021-05-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/uncategorized/">uncategorized</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/11/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/#board">10</a><a class="page-number" href="/page/11/#board">11</a><span class="page-number current">12</span>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://www.baidu.com" target="_blank" rel="nofollow noopener"><span>一只喵博客</span></a> <i class="iconfont icon-love"></i> <a href="https://Google.com" target="_blank" rel="nofollow noopener"><span>易的个人博客</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
