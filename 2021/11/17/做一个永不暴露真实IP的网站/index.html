@@ -1,0 +1,536 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="易">
+  <meta name="keywords" content="">
+  <meta name="description" content="防范DDOS攻击最主要的手段是加钱上高防，同时隐藏网站真实IP，本文简单介绍几种网站隐藏真实ip的方法和优缺点，让你能真正做一个永不暴露真实IP的网站。  隐藏IP的几种办法既然不想暴露网站的真实IP，那么真实服务器前面至少套一层代理。一般来说，位于最前线的反向代理主要有如下几种：    CDN：内容分发网络，就近为用户提供服务，加速访问；   高防IP：高防IP一般位于大带宽的骨干网节点上，用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="做一个永不暴露真实IP的网站">
+<meta property="og:url" content="http://example.com/2021/11/17/%E5%81%9A%E4%B8%80%E4%B8%AA%E6%B0%B8%E4%B8%8D%E6%9A%B4%E9%9C%B2%E7%9C%9F%E5%AE%9EIP%E7%9A%84%E7%BD%91%E7%AB%99/index.html">
+<meta property="og:site_name" content="一只喵博客">
+<meta property="og:description" content="防范DDOS攻击最主要的手段是加钱上高防，同时隐藏网站真实IP，本文简单介绍几种网站隐藏真实ip的方法和优缺点，让你能真正做一个永不暴露真实IP的网站。  隐藏IP的几种办法既然不想暴露网站的真实IP，那么真实服务器前面至少套一层代理。一般来说，位于最前线的反向代理主要有如下几种：    CDN：内容分发网络，就近为用户提供服务，加速访问；   高防IP：高防IP一般位于大带宽的骨干网节点上，用">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-16T17:35:32.000Z">
+<meta property="article:modified_time" content="2021-11-18T02:02:52.570Z">
+<meta property="article:author" content="易">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>做一个永不暴露真实IP的网站 - 一只喵博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":"https://www.googletagmanager.com/gtag/js?id=G-BX9F8NV97R","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>一只喵博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="做一个永不暴露真实IP的网站">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-17 01:35" pubdate>
+        2021年11月17日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      10k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      32 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">做一个永不暴露真实IP的网站</h1>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>防范DDOS攻击最主要的手段是加钱上高防，同时隐藏网站真实IP，本文简单介绍几种网站隐藏真实ip的方法和优缺点，让你能真正做一个永不暴露真实IP的网站。</p>
+</blockquote>
+<h2 id="隐藏IP的几种办法"><a href="#隐藏IP的几种办法" class="headerlink" title="隐藏IP的几种办法"></a>隐藏IP的几种办法</h2><p>既然不想暴露网站的真实IP，那么真实服务器前面至少套一层代理。一般来说，位于最前线的反向代理主要有如下几种：</p>
+<ul>
+<li>  <strong>CDN</strong>：内容分发网络，就近为用户提供服务，加速访问；</li>
+<li>  <strong>高防IP</strong>：高防IP一般位于大带宽的骨干网节点上，用于清洗DDoS流量；</li>
+<li>  <strong>SLB</strong>：负载均衡器，用在大流量、繁忙的网站上，常见的SLB有LVS、F5等。</li>
+</ul>
+<p>这三种反向代理主要作用不一样，配置好的情况下都能隐藏服务器真实IP。对于普通的网站，使用CDN或者高防IP就足够，业务量大的情况下才会用到SLB。</p>
+<h2 id="如何绕过CDN等代理服务查到源站IP"><a href="#如何绕过CDN等代理服务查到源站IP" class="headerlink" title="如何绕过CDN等代理服务查到源站IP"></a>如何绕过CDN等代理服务查到源站IP</h2><p>正所谓知己知彼百战百胜，在介绍如何隐藏IP之前，我们需要了解攻击者通常是怎么绕过这些代理服务找到源站IP的。</p>
+<p>正常情况下，通过cmd命令（或者站长工具等）可以快速找到域名对应IP，最常见的命令如ping、nslookup。如果挂了代理服务很明显这个就行不通，在ping的时候会发现有多个IP，绕过代理服务器查源站IP通常有以下几种方法：</p>
+<ul>
+<li>  <strong>DNS历史解析记录</strong>：查询域名的历史解析记录，可能会找到网站使用CDN前的解析记录，从而获取真实ip；</li>
+<li>  <strong>查找子域名</strong>：很多时候，一些重要的站点会做CDN，而一些子域名站点并没有加入CDN，而且跟主站在同一个C段内，这时候，就可以通过查找子域名来查找网站的真实IP；</li>
+<li>  <strong>网站邮件头信息</strong>：比如说，邮箱注册，邮箱找回密码、RSS邮件订阅等功能场景，通过网站给自己发送邮件，从而让目标主动暴露他们的真实的IP，查看邮件头信息，获取到网站的真实IP。</li>
+<li>  <strong>网络空间安全引擎搜索</strong>：通过关键字或网站域名，就可以找出被收录的IP，很多时候获取到的就是网站的真实IP</li>
+<li>  <strong>利用SSL证书寻找真实IP</strong>：证书颁发机构(CA)必须将他们发布的每个SSL/TLS证书发布到公共日志中，SSL/TLS证书通常包含域名、子域名和电子邮件地址。包括很多站长喜欢使用宝塔面板一键生成ssl，其实这也会被证书记录源站IP，因此SSL/TLS证书成为了攻击者的切入点。</li>
+<li>  <strong>国外主机解析域名</strong>：大部分 CDN 厂商因为各种原因只做了国内的线路，而针对国外的线路可能几乎没有，此时我们使用国外的DNS查询，很可能获取到真实IP。</li>
+<li>  <strong>扫描全网</strong>：通过Zmap、masscan等工具对整个互联网发起扫描，有的工具甚至可以达到五分钟就能扫描完全网，攻击者会针对扫描结果进行关键字查找，从而获取网站真实IP。</li>
+<li>  <strong>配置不当导致绕过</strong>：在配置CDN的时候，需要指定域名、端口等信息，有时候小小的配置细节就容易导致CDN防护被绕过。</li>
+<li>  <strong>F5 LTM 负载均衡解码获取真实内网ip</strong>：如果网站先在内网出口使用F5做ISP的链路负载均衡，然后再用CDN加速。这样的话，客户端还是可以看到F5埋的那个cookie。而且经过CDN，埋的cookie不会被修改或者删除，所以客户端还是可以看到。通过解码就可以得到目标服务器真实内网ip</li>
+<li>  <strong>利用网站漏洞</strong>：如果目标站点存在漏洞，这就没办法避免了。例如phpinfo敏感信息泄露、Apache status和Jboss status敏感信息泄露、网页源代码泄露、svn信息泄露信、github信息泄露等。<br>若存在web漏洞，服务器主动与我们发起请求连接，我们也能获取目标站点真实ip。例如xss、ssrf、命令执行反弹shell等。</li>
+</ul>
+<p>这些是我所知道的方法，如果后续还发现有其他的我会进行补充，下面对上面几种方法进行详细的介绍：</p>
+<h3 id="一、DNS历史解析记录"><a href="#一、DNS历史解析记录" class="headerlink" title="一、DNS历史解析记录"></a>一、DNS历史解析记录</h3><p>查询DNS记录的网站有：<br>iphistory：<a target="_blank" rel="noopener" href="https://viewdns.info/iphistory/">https://viewdns.info/iphistory/</a><br>DNS查询：（<a target="_blank" rel="noopener" href="https://dnsdb.io/zh-cn/%EF%BC%89">https://dnsdb.io/zh-cn/）</a><br>微步在线：（<a target="_blank" rel="noopener" href="https://x.threatbook.cn/%EF%BC%89">https://x.threatbook.cn/）</a><br>域名查询：（<a target="_blank" rel="noopener" href="https://site.ip138.com/%EF%BC%89">https://site.ip138.com/）</a><br>DNS历史查询：（<a target="_blank" rel="noopener" href="https://securitytrails.com/%EF%BC%89">https://securitytrails.com/）</a><br>Netcraft：<a target="_blank" rel="noopener" href="https://sitereport.netcraft/">https://sitereport.netcraft</a>.</p>
+<h3 id="二、查找子域名"><a href="#二、查找子域名" class="headerlink" title="二、查找子域名"></a>二、查找子域名</h3><p>常用的子域名查找方法和工具：</p>
+<p>1、搜索引擎查询：如Google、baidu、Bing等传统搜索引擎，site:baidu.com inurl:baidu.com，搜target.com|公司名字。</p>
+<p>2、一些在线查询工具，如：<br><a target="_blank" rel="noopener" href="http://tool.chinaz.com/subdomain/">http://tool.chinaz.com/subdomain/</a><br><a target="_blank" rel="noopener" href="http://i.links.cn/subdomain/">http://i.links.cn/subdomain/</a><br><a target="_blank" rel="noopener" href="http://subdomain.chaxun.la/">http://subdomain.chaxun.la/</a><br><a target="_blank" rel="noopener" href="http://searchdns.netcraft.com/">http://searchdns.netcraft.com/</a><br><a target="_blank" rel="noopener" href="https://www.virustotal.com/">https://www.virustotal.com/</a></p>
+<p>3、 子域名爆破工具：<br>Layer子域名挖掘机<br>wydomain：<a target="_blank" rel="noopener" href="https://github.com/ring04h/wydomain">https://github.com/ring04h/wydomain</a><br>subDomainsBrute:<a target="_blank" rel="noopener" href="https://github.com/lijiejie/">https://github.com/lijiejie/</a><br>Sublist3r:<br><a target="_blank" rel="noopener" href="https://github.com/aboul3la/Sublist3r">https://github.com/aboul3la/Sublist3r</a></p>
+<h3 id="三、网络空间安全引擎搜索"><a href="#三、网络空间安全引擎搜索" class="headerlink" title="三、网络空间安全引擎搜索"></a>三、网络空间安全引擎搜索</h3><p>钟馗之眼：<a target="_blank" rel="noopener" href="https://www.zoomeye.org/">https://www.zoomeye.org</a><br>Shodan：<a target="_blank" rel="noopener" href="https://www.shodan.io/">https://www.shodan.io</a><br>Fofa：<a target="_blank" rel="noopener" href="https://fofa.so/">https://fofa.so</a></p>
+<h3 id="四、利用SSL证书寻找真实IP"><a href="#四、利用SSL证书寻找真实IP" class="headerlink" title="四、利用SSL证书寻找真实IP"></a>四、利用SSL证书寻找真实IP</h3><p>SSL证书搜索引擎：<br><a target="_blank" rel="noopener" href="https://censys.io/ipv4?q=github.comCensys">https://censys.io/ipv4?q=github.comCensys</a> </p>
+<h3 id="五、国外主机解析域名"><a href="#五、国外主机解析域名" class="headerlink" title="五、国外主机解析域名"></a>五、国外主机解析域名</h3><p>国外多PING测试工具：<br><a target="_blank" rel="noopener" href="https://asm.ca.com/zh_cn/ping.php">https://asm.ca.com/zh_cn/ping.php</a><br><a target="_blank" rel="noopener" href="http://host-tracker.com/">http://host-tracker.com/</a><br><a target="_blank" rel="noopener" href="http://www.webpagetest.org/">http://www.webpagetest.org/</a><br><a target="_blank" rel="noopener" href="https://dnscheck.pingdom.com/">https://dnscheck.pingdom.com/</a></p>
+<h3 id="六、扫描全网"><a href="#六、扫描全网" class="headerlink" title="六、扫描全网"></a>六、扫描全网</h3><p>1、ZMap号称是最快的互联网扫描工具，能够在45分钟扫遍全网。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zmap/zmap">https://github.com/zmap/zmap</a></p>
+<p>2，zgrab 是基于zmap无状态扫描的应用层扫描器,可以自定义数据包，以及ip、domain之间的关联。可用于快速指纹识别爆破等场景。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zmap/zgrab/">https://github.com/zmap/zgrab/</a></p>
+<p>3、Masscan号称是最快的互联网端口扫描器，最快可以在六分钟内扫遍互联网。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/robertdavidgraham/masscan">https://github.com/robertdavidgraham/masscan</a></p>
+<h3 id="七、配置不当导致绕过"><a href="#七、配置不当导致绕过" class="headerlink" title="七、配置不当导致绕过"></a>七、配置不当导致绕过</h3><p>案例1：为了方便用户访问，我们常常将<a target="_blank" rel="noopener" href="http://www.test.com/">www.test.com</a> 和 test.com 解析到同一个站点，而CDN只配置了<a target="_blank" rel="noopener" href="http://www.test.com,通过访问test.com,就可以绕过/">www.test.com，通过访问test.com，就可以绕过</a> CDN 了。</p>
+<p>案例2：站点同时支持http和https访问，CDN只配置 https协议，那么这时访问http就可以轻易绕过。</p>
+<p>看到这里相比也差不多弄清楚了大部分攻击者是怎么绕过代理服务的，那下面就介绍如何更好的隐藏网站真实IP，当然这也是基于使用了代理服务的前提下：</p>
+<h3 id="一，防火墙"><a href="#一，防火墙" class="headerlink" title="一，防火墙"></a>一，防火墙</h3><p>使用防火墙是最简单的也是最粗暴的做法，即：将反向代理的回源IP加入白名单，屏蔽其他IP的任何请求。</p>
+<p>例如使用CloudFlare的免费CDN服务，其回源IP可从 <a target="_blank" rel="noopener" href="https://www.cloudflare.com/zh-cn/ips/">https://www.cloudflare.com/zh-cn/ips/</a> 获取，然后将其加入白名单，同时屏蔽其他IP，教程如下：</p>
+<p>① 在root文件夹下新建一个cf_ips.txt文件，将上面获取的CF节点IP地址放在 cf_ips.txt里即可，特别提醒最好把自己家IP也输入进去，以免登不上ssh</p>
+<p>②将CF加入白名单，在SSH输入以下指令：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">while</span> <span class="hljs-keyword">read</span> -r <span class="hljs-built_in">line</span><br><span class="hljs-keyword">do</span><br>firewall-cmd --zone=trusted --<span class="hljs-built_in">add</span>-<span class="hljs-keyword">source</span>=$linedone &lt; <span class="hljs-keyword">cf</span>\_ips.txt<br></code></pre></td></tr></table></figure>
+
+<p>③移除其他ip对http和https服务的访问</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">firewall-cmd <span class="hljs-attribute">--remove-service</span>=http<br>firewall-cmd <span class="hljs-attribute">--remove-service</span>=https<br></code></pre></td></tr></table></figure>
+
+<p>还有另外一种处理方法，教程如下：</p>
+<p>①把自己IP放入白名单</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">auto</span><br><br>iptables -<span class="hljs-selector-tag">I</span> <span class="hljs-selector-tag">INPUT</span> -s 自己的IP -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">22</span> -j ACCEPT    <br></code></pre></td></tr></table></figure>
+
+<p>②全端口TCP关闭</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">auto</span><br>iptables -<span class="hljs-selector-tag">I</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">1</span>:<span class="hljs-number">65535</span> -j DROP  <br></code></pre></td></tr></table></figure>
+
+<p>③只允许CDN的IP访问，这里以CF做示范：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">auto</span><br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">80</span> -s <span class="hljs-number">173.245</span>.<span class="hljs-number">48.0</span>/<span class="hljs-number">20</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">80</span> -s <span class="hljs-number">103.21</span>.<span class="hljs-number">244.0</span>/<span class="hljs-number">22</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">80</span> -s <span class="hljs-number">103.22</span>.<span class="hljs-number">200.0</span>/<span class="hljs-number">22</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">80</span> -s <span class="hljs-number">103.31</span>.<span class="hljs-number">4.0</span>/<span class="hljs-number">22</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">80</span> -s <span class="hljs-number">141.101</span>.<span class="hljs-number">64.0</span>/<span class="hljs-number">18</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">80</span> -s <span class="hljs-number">108.162</span>.<span class="hljs-number">192.0</span>/<span class="hljs-number">18</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">80</span> -s <span class="hljs-number">190.93</span>.<span class="hljs-number">240.0</span>/<span class="hljs-number">20</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">80</span> -s <span class="hljs-number">188.114</span>.<span class="hljs-number">96.0</span>/<span class="hljs-number">20</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">80</span> -s <span class="hljs-number">197.234</span>.<span class="hljs-number">240.0</span>/<span class="hljs-number">22</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">80</span> -s <span class="hljs-number">198.41</span>.<span class="hljs-number">128.0</span>/<span class="hljs-number">17</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">80</span> -s <span class="hljs-number">162.158</span>.<span class="hljs-number">0.0</span>/<span class="hljs-number">15</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">80</span> -s <span class="hljs-number">104.16</span>.<span class="hljs-number">0.0</span>/<span class="hljs-number">12</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">80</span> -s <span class="hljs-number">172.64</span>.<span class="hljs-number">0.0</span>/<span class="hljs-number">13</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">80</span> -s <span class="hljs-number">131.0</span>.<span class="hljs-number">72.0</span>/<span class="hljs-number">22</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">443</span> -s <span class="hljs-number">173.245</span>.<span class="hljs-number">48.0</span>/<span class="hljs-number">20</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">443</span> -s <span class="hljs-number">103.21</span>.<span class="hljs-number">244.0</span>/<span class="hljs-number">22</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">443</span> -s <span class="hljs-number">103.22</span>.<span class="hljs-number">200.0</span>/<span class="hljs-number">22</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">443</span> -s <span class="hljs-number">103.31</span>.<span class="hljs-number">4.0</span>/<span class="hljs-number">22</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">443</span> -s <span class="hljs-number">141.101</span>.<span class="hljs-number">64.0</span>/<span class="hljs-number">18</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">443</span> -s <span class="hljs-number">108.162</span>.<span class="hljs-number">192.0</span>/<span class="hljs-number">18</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">443</span> -s <span class="hljs-number">190.93</span>.<span class="hljs-number">240.0</span>/<span class="hljs-number">20</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">443</span> -s <span class="hljs-number">188.114</span>.<span class="hljs-number">96.0</span>/<span class="hljs-number">20</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">443</span> -s <span class="hljs-number">197.234</span>.<span class="hljs-number">240.0</span>/<span class="hljs-number">22</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">443</span> -s <span class="hljs-number">198.41</span>.<span class="hljs-number">128.0</span>/<span class="hljs-number">17</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">443</span> -s <span class="hljs-number">162.158</span>.<span class="hljs-number">0.0</span>/<span class="hljs-number">15</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">443</span> -s <span class="hljs-number">104.16</span>.<span class="hljs-number">0.0</span>/<span class="hljs-number">12</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">443</span> -s <span class="hljs-number">172.64</span>.<span class="hljs-number">0.0</span>/<span class="hljs-number">13</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">443</span> -s <span class="hljs-number">131.0</span>.<span class="hljs-number">72.0</span>/<span class="hljs-number">22</span> -j ACCEPT;<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">80</span> -j DROP<br>iptables -<span class="hljs-selector-tag">A</span> <span class="hljs-selector-tag">INPUT</span> -<span class="hljs-selector-tag">p</span> tcp --dport <span class="hljs-number">443</span> -j DROP<br></code></pre></td></tr></table></figure>
+
+<p>④在你测试这段代码没有问题能正常工作之后，可以永久保存此规则</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">auto</span><br>service iptables save<br></code></pre></td></tr></table></figure>
+
+<p>执行这个命令的时候有时候可能会报错：The service command supports only basic LSB actions (start, stop, restart, try-restart, reload, force-reload, status). For other actions, please try to use systemctl.</p>
+<p>这是因为没有安装iptables服务，直接使用yum安装iptables服务即可.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs auto">yum install iptables-services<br></code></pre></td></tr></table></figure>
+
+<p>安装完成后，重新执行 service iptables save 命令即可保存成功。</p>
+<p>⑤防火墙firewall设置指令：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs nix">auto<br>firewall-cmd --permanent <span class="hljs-attr">--add-rich-rule=&quot;rule</span> <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=103.21.244.0/22</span> port <span class="hljs-attr">port=80</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=103.22.200.0/22</span> port <span class="hljs-attr">port=80</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=103.31.4.0/22</span> port <span class="hljs-attr">port=80</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=104.16.0.0/12</span> port <span class="hljs-attr">port=80</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=108.162.192.0/18</span> port <span class="hljs-attr">port=80</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=131.0.72.0/22</span> port <span class="hljs-attr">port=80</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=162.158.0.0/15</span> port <span class="hljs-attr">port=80</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=172.64.0.0/13</span> port <span class="hljs-attr">port=80</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=173.245.48.0/20</span> port <span class="hljs-attr">port=80</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=188.114.96.0/20</span> port <span class="hljs-attr">port=80</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=190.93.240.0/20</span> port <span class="hljs-attr">port=80</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=197.234.240.0/22</span> port <span class="hljs-attr">port=80</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=198.41.128.0/17</span> port <span class="hljs-attr">port=80</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=103.21.244.0/22</span> port <span class="hljs-attr">port=443</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=103.22.200.0/22</span> port <span class="hljs-attr">port=443</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=103.31.4.0/22</span> port <span class="hljs-attr">port=443</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=104.16.0.0/12</span> port <span class="hljs-attr">port=443</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=108.162.192.0/18</span> port <span class="hljs-attr">port=443</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=131.0.72.0/22</span> port <span class="hljs-attr">port=443</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=162.158.0.0/15</span> port <span class="hljs-attr">port=443</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=172.64.0.0/13</span> port <span class="hljs-attr">port=443</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=173.245.48.0/20</span> port <span class="hljs-attr">port=443</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=188.114.96.0/20</span> port <span class="hljs-attr">port=443</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=190.93.240.0/20</span> port <span class="hljs-attr">port=443</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=197.234.240.0/22</span> port <span class="hljs-attr">port=443</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br><span class="hljs-string">firewall-cmd --permanent --add-rich-rule=&quot;</span>rule <span class="hljs-attr">family=ipv4</span> source <span class="hljs-attr">address=198.41.128.0/17</span> port <span class="hljs-attr">port=443</span>  <span class="hljs-attr">protocol=tcp</span>  accept<span class="hljs-string">&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>⑥使规则生效</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">firewall-cmd <span class="hljs-comment">--reload</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="二，IPv6"><a href="#二，IPv6" class="headerlink" title="二，IPv6"></a>二，IPv6</h3><p>对于防火墙和网络不熟悉的网友，可以考虑使用IPv6来隐藏网站的真实IP。具体操作为：</p>
+<p>①找一台有IPv6地址的服务器，只有IPv6的<br>② 设置网站只监听IPv6端口。以为例，网站配置文件形如：</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs axapta"><span class="hljs-keyword">server</span> &#123;<br>    listen \[::\]:<span class="hljs-number">80</span>;<br>    <span class="hljs-keyword">server</span>\_name 主机名; <span class="hljs-meta"># 请改成自己的主机名</span><br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">301</span> https:<span class="hljs-comment">//主机名$request\_uri;</span><br>&#125;<br><span class="hljs-keyword">server</span> &#123;<br>    listen      \[::\]:<span class="hljs-number">443</span> ssl http2;<br>    <span class="hljs-keyword">server</span>\_name  主机名;<br>    ssl\_certificate 证书路径;<br>    ssl\_certificate\_key ssl密钥路径;<br>    <span class="hljs-meta"># 其他设置</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>③ 找一家支持只有IPv6的CDN，例如 <a target="_blank" rel="noopener" href="https://tlanyan.pp.ua/tag/cloudflare/">Cloudflare</a>，设置IPv6解析</p>
+<p>如果不放心，可以同样加上防火墙，就万无一失了：</p>
+<p>首先将cf的ip加入白名单</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">while</span> <span class="hljs-keyword">read</span> -r <span class="hljs-built_in">line</span><br><span class="hljs-keyword">do</span><br>  firewall-cmd --zone=trusted --<span class="hljs-built_in">add</span>-<span class="hljs-keyword">source</span>=$<span class="hljs-built_in">line</span><br>done &lt; <span class="hljs-keyword">cf</span>\_ips.txt<br></code></pre></td></tr></table></figure>
+
+<p>然后屏蔽其他地址对ipv6的访问权限</p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">firewall-cmd</span> <span class="hljs-built_in">--add-rich-rule=&quot;rule</span> <span class="hljs-string">family</span>=<span class="hljs-string">&#x27;ipv6&#x27;</span> <span class="hljs-string">source</span> <span class="hljs-string">address</span>=<span class="hljs-string">&#x27;::0/0&#x27;</span> <span class="hljs-string">drop</span><span class="hljs-string">&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>该方法同样设置简单，以奇招胜出，单台服务器能托管多个网站，并且其他网站可直接暴露不受影响。</p>
+<h3 id="CNAME"><a href="#CNAME" class="headerlink" title="CNAME"></a>CNAME</h3><p>另一种常见隐藏真实IP方式是使用CNAME，同样无需设置防火墙。其操作如下：</p>
+<p>① CDN回源时使用CNAME方式回源到另一个主机名上。例如<a target="_blank" rel="noopener" href="http://www.baidu.com回源的www.abcdexfd.com.需要注意的是,前端域名和源站域名最好不是同一个,防止通过爆破二级域名泄漏真实ip;/">www.baidu.com回源的www.abcdexfd.com。需要注意的是，前端域名和源站域名最好不是同一个，防止通过爆破二级域名泄漏真实IP；</a></p>
+<p>②在源站服务器上设置默认站点，防止通过host方式爆破。由于默认站点只是为了防止SNI方式泄漏真实IP，因此使用自签证书即可</p>
+<p>③ 生成密钥</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">openssl genrsa -out <span class="hljs-built_in">example</span>.<span class="hljs-built_in">key</span> <span class="hljs-number">2048</span><br></code></pre></td></tr></table></figure>
+<p>④生成证书，期间需要填一些信息</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">openssl req -<span class="hljs-built_in">new</span> -x509 -days <span class="hljs-number">3650</span> -<span class="hljs-built_in">key</span> <span class="hljs-built_in">example</span>.<span class="hljs-built_in">key</span> -out <span class="hljs-built_in">example</span>.pem<br></code></pre></td></tr></table></figure>
+
+<p>接着以Nginx为例，设置默认站点：</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sqf">server &#123;<br>  listen <span class="hljs-number">80</span> <span class="hljs-keyword">default</span>\<span class="hljs-variable">_server</span>;<br>  server\<span class="hljs-variable">_name</span> example.com;<br>  return <span class="hljs-number">301</span> https:<span class="hljs-comment">//example.com$request\_uri;</span><br>&#125;<br><br>server &#123;<br>  listen <span class="hljs-number">443</span> ssl http2;<br>  server\<span class="hljs-variable">_name</span> example.com <span class="hljs-keyword">default</span>\<span class="hljs-variable">_server</span>;<br>  ssl\<span class="hljs-variable">_certificate</span> example.pem;<br>  ssl\<span class="hljs-variable">_certificate</span>\<span class="hljs-variable">_key</span> example.key;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>然后重启Nginx即可。</p>
+<p>该方法无需设置防火墙，设置较为简单，但是需要额外一个域名。</p>
+<p>如果域名之前从未用过，刚开通就用上面提到的方法，基本上可以保证不会泄漏网站的真实IP。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/14/%E5%A4%A7%E6%A1%88%E5%B7%A7%E7%A0%B4%EF%BC%8C%E5%B0%8F%E6%A1%88%E5%A4%A7%E7%A0%B4/">
+                        <span class="hidden-mobile">大案巧破，小案大破</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://www.baidu.com" target="_blank" rel="nofollow noopener"><span>一只喵博客</span></a> <i class="iconfont icon-love"></i> <a href="https://Google.com" target="_blank" rel="nofollow noopener"><span>易的个人博客</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
